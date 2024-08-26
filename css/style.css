@@ -1,23 +1,34 @@
 /* Fontes */
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 /* Variáveis de Cores */
 :root {
-    --cor-primaria: #0A3871;
-    --cor-secundaria: #d8dfe8;
-    --cor-texto: #0A3871;
-    --cor-texto-neutro: #495057;
-    --cor-fundo: #e5e5e5;
-    --cor-branco: #ffffff;
-    --cor-sombra: rgba(0, 0, 0, 0.08);
-    --cor-alerta: #0A3871;
+    --cor-primaria: #941592;
+    --cor-secundaria: #de9bdd;
+    --cor-texto: #4a003e;
+    --cor-texto-neutro: #6D6E71;
+    --cor-fundo: #e6cae8;
+    --cor-branco: #FFFFFF;
+    --cor-sombra: rgba(0, 0, 0, 0.1);
+    --cor-alerta: #330236;
+    --border-radius: 24px;
+    --box-shadow: 0px 20px 29px -5px var(--cor-sombra);
+    --padding: 20px;
+    --font-size: 16px;
+    --line-height: 24px;
+}
+
+/* Gradientes */
+:root {
+    --gradiente-primario: linear-gradient(135deg, #941592, #de9bdd);
+    --gradiente-secundario: linear-gradient(135deg, #de9bdd, #941592);
 }
 
 /* Estilos Globais */
 * {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
     margin: 0;
     padding: 0;
     transition: all 0.3s ease;
@@ -30,21 +41,30 @@ body {
 }
 
 /* Cabeçalho */
+/* Cabeçalho */
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 10px;
+    justify-content: flex-start;
+    padding: 10px 20px; /* Afasta a logo do canto */
+    margin-bottom: 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .logo {
-    margin-left: 10px;
-    padding-top: 10px;
-    width: 120px;
-    height: 48px;
+    margin-right: 20px;
+    width: 40px; /* Tamanho da logo */
+    height: auto;
 }
+
+header h1 {
+    font-size: 24px;
+    color: var(--cor-texto);
+    margin: 0;
+    text-align: left; 
+}
+
 
 /* Estilo principal para main */
 main {
@@ -53,46 +73,51 @@ main {
     justify-content: center;
     gap: 40px;
     max-width: 100%;
-    margin-top: -20px;
-    margin-bottom: 80px;
-    padding: 20px;
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+    margin-right: -20px; /* Ajuste o valor conforme necessário */
+    padding: var(--padding);
+    padding-bottom: 40px;
     position: relative;
 }
 
+
 /* Seção Texto */
 .texto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
     width: 100%;
     max-width: 680px;
     margin: 0 auto;
     padding: 30px 10px;
-    padding-bottom: 90px;
+    margin-bottom: 20px;
     position: relative;
+    color: var(--cor-texto);
 }
 
 .text-area {
     width: 100%;
-    max-width: 100%;
     height: 200px;
-    padding: 20px;
+    padding: var(--padding);
     border: none;
-    font-size: 16px;
-    line-height: 24px;
-    background: var(--cor-fundo);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    background: var(--cor-branco);
     margin-bottom: 20px;
     color: var(--cor-texto);
 }
-
 
 /* Texto de Aviso com ícone */
 .text-aviso {
     display: flex;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 10px;
     font-size: 14px;
     color: var(--cor-texto-neutro);
+    justify-content: flex-start;
+    width: 100%;
 }
 
 .text-aviso p {
@@ -109,22 +134,22 @@ main {
 
 /* Estilo da Mensagem */
 .mensagem {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
     position: relative;
-    background-size: 336px 304px;
-    background-position: center;
+    background: var(--gradiente-primario);
     border: none;
-    border-radius: 32px;
+    border-radius: var(--border-radius);
     box-shadow: 0px 24px 32px -8px var(--cor-sombra);
     color: var(--cor-texto);
-    padding: 20px;
+    padding: var(--padding);
     width: 100%;
     max-width: 336px;
     min-height: 380px;
-    background: var(--cor-branco);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0px;
 }
 
 /* Estilo do Conteúdo da Mensagem */
@@ -136,7 +161,7 @@ main {
     text-align: center;
 }
 
-.imagem-boneco {
+.imagem-front {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
@@ -152,47 +177,51 @@ main {
 /* Área de texto */
 .resposta {
     position: relative;
-    width: calc(100% - 40px);
+    width: 100%;
     max-width: 336px;
-    height: 100px;
+    height: 150px;
     padding: 16px;
     border: 1px solid var(--cor-secundaria);
-    border-radius: 15px;
-    font-size: 16px;
-    line-height: 24px;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
     background: var(--cor-branco);
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    resize: none;
+    box-sizing: border-box;
 }
-
 
 /* Botões */
 .botoes {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Lado a lado em telas grandes */
+    gap: 16px; /* Espaçamento entre os botões */
     width: 100%;
     max-width: 680px;
     margin: 20px 0;
-    gap: 24px;
-    position: relative;
 }
 
+/* Estilo dos Botões */
 .btn-criptografar,
 .btn-desencriptar,
 .btn-copiar {
     height: 67px;
-    padding: 24px;
+    padding: 16px 24px;
     font-size: 16px;
-    border-radius: 24px;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    box-shadow: 0px 20px 29px -5px var(--cor-sombra);
+    box-shadow: var(--box-shadow);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.btn-criptografar,
-.btn-desencriptar {
-    width: 328px;
-}
-
+/* Botão Criptografar */
 .btn-criptografar {
     color: var(--cor-branco);
     background: var(--cor-primaria);
@@ -210,8 +239,9 @@ main {
     color: var(--cor-secundaria);
 }
 
+/* Botão Descriptografar */
 .btn-desencriptar {
-    color: var(--cor-primaria);
+    color: var(--cor-branco);
     background: var(--cor-secundaria);
     border: 1px solid var(--cor-primaria);
 }
@@ -224,22 +254,24 @@ main {
 
 .btn-desencriptar:active {
     box-shadow: inset 2px 2px 4px var(--cor-primaria), inset -3px -4px 8px var(--cor-fundo);
-    color: rgba(10, 56, 113, 0.54);
+    color: rgb(22, 3, 33, 0.54);
 }
 
+/* Botão Copiar */
 .btn-copiar {
-    width: auto;
-    min-width: 328px;
+    width: 100%;
+    max-width: 336px;
     background: var(--cor-secundaria);
     border: 1px solid var(--cor-primaria);
-    display: none;
     padding: 16px 24px;
-    border-radius: 24px;
-    color: var(--cor-primaria);
+    border-radius: var(--border-radius);
+    color: var(--cor-branco);
     cursor: pointer;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 .btn-copiar:hover {
@@ -248,32 +280,31 @@ main {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Foco nos Botões */
 .btn-criptografar:focus,
 .btn-desencriptar:focus,
 .btn-copiar:focus {
-    outline: 3px solid var(--cor-alerta);
-    outline-offset: 2px;
+    outline: 2px solid var(--cor-alerta);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.5);
+    transition: outline 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-
 
 ::placeholder {
     color: var(--cor-texto-neutro);
-    font-size: 16px;
+    font-size: var(--font-size);
     font-weight: 400;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
     text-transform: none;
 }
 
 /* Estilo do Footer */
 footer {
-    background-color: var(--cor-primaria);
+    background: var(--gradiente-primario);
     color: var(--cor-branco);
-    padding: 10px;
+    padding: var(--padding);
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Adiciona um pouco de espaço acima do rodapé */
 }
 
 footer p {
@@ -291,15 +322,55 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Estilo de Responsividade */
-@media (max-width: 768px) {
-    .texto {
-        padding: 10px;
+/* Responsividade */
+
+/* Dispositivos Móveis Pequenos */
+@media (max-width: 480px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 18px;
     }
 
     .botoes {
-        flex-direction: column;
-        gap: 10px;
+        grid-template-columns: 1fr; /* Coloca os botões em uma coluna */
+        gap: 16px; /* Espaçamento entre botões */
+    }
+
+    .btn-criptografar,
+    .btn-desencriptar,
+    .btn-copiar {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .texto {
+        padding: 15px;
+    }
+
+    .resposta {
+        height: 60px;
+    }
+}
+
+/* Dispositivos Móveis Médios e Tablets */
+@media (max-width: 768px) {
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .botoes {
+        grid-template-columns: 1fr; /* Coloca os botões em uma coluna */
+        gap: 16px; /* Espaçamento entre botões */
     }
 
     .btn-criptografar,
@@ -308,7 +379,36 @@ footer a:hover {
         width: 100%;
     }
 
+    .texto {
+        padding: 20px;
+    }
+}
+
+/* Dispositivos de Tela Grande (Desktops Pequenos) */
+@media (max-width: 1024px) {
+    .botoes {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 20px;
+    }
+
+    .btn-criptografar,
+    .btn-desencriptar,
     .btn-copiar {
-        display: block;
+        width: 100%;
+    }
+
+    .texto {
+        padding: 25px;
+    }
+}
+
+/* Dispositivos de Tela Muito Grande (Desktops Grandes) */
+@media (min-width: 1200px) {
+    .logo {
+        width: 100px;
+    }
+
+    header h1 {
+        font-size: 28px;
     }
 }

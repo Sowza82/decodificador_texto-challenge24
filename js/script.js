@@ -4,7 +4,7 @@ const resposta = document.querySelector('.resposta');
 const btnCriptografar = document.querySelector('.btn-criptografar');
 const btnDescriptografar = document.querySelector('.btn-desencriptar');
 const btnCopiar = document.querySelector('.btn-copiar');
-const imagemBoneco = document.querySelector('.imagem-boneco'); 
+const imagemFront = document.querySelector('.imagem-front'); 
 
 // Função para validar o texto
 function validarTexto(texto) {
@@ -38,7 +38,7 @@ function mostrarMensagemErro(mensagem) {
 }
 
 // Adiciona eventos de clique aos botões
-if (textArea && resposta && btnCriptografar && btnDescriptografar && btnCopiar && imagemBoneco) {
+if (textArea && resposta && btnCriptografar && btnDescriptografar && btnCopiar && imagemFront) {
     btnCriptografar.addEventListener('click', () => {
         const texto = textArea.value.trim();
 
@@ -46,7 +46,7 @@ if (textArea && resposta && btnCriptografar && btnDescriptografar && btnCopiar &
             resposta.value = criptografarTexto(texto);
             textArea.value = '';
             btnCopiar.style.display = 'block'; 
-            imagemBoneco.style.display = 'none';
+            imagemFront.style.display = 'none';
         } else {
             mostrarMensagemErro('Texto inválido! Use apenas letras minúsculas e espaços.');
         }
@@ -59,7 +59,7 @@ if (textArea && resposta && btnCriptografar && btnDescriptografar && btnCopiar &
             resposta.value = descriptografarTexto(texto);
             textArea.value = '';
             btnCopiar.style.display = 'block'; 
-            imagemBoneco.style.display = 'none'; 
+            imagemFront.style.display = 'none'; 
         } else {
             mostrarMensagemErro('Texto inválido! Use apenas letras minúsculas e espaços.');
         }
