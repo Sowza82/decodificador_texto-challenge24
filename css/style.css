@@ -16,10 +16,6 @@
     --padding: 20px;
     --font-size: 16px;
     --line-height: 24px;
-}
-
-/* Gradientes */
-:root {
     --gradiente-primario: linear-gradient(135deg, #941592, #de9bdd);
     --gradiente-secundario: linear-gradient(135deg, #de9bdd, #941592);
 }
@@ -41,20 +37,18 @@ body {
 }
 
 /* Cabeçalho */
-/* Cabeçalho */
 header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px 20px; /* Afasta a logo do canto */
+    padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
 .logo {
     margin-right: 20px;
-    width: 40px; /* Tamanho da logo */
+    width: 50px;
     height: auto;
 }
 
@@ -62,9 +56,8 @@ header h1 {
     font-size: 24px;
     color: var(--cor-texto);
     margin: 0;
-    text-align: left; 
+    text-align: left;
 }
-
 
 /* Estilo principal para main */
 main {
@@ -73,14 +66,40 @@ main {
     justify-content: center;
     gap: 40px;
     max-width: 100%;
-    margin-top: 40px; 
-    margin-bottom: 40px; 
-    margin-right: -20px; /* Ajuste o valor conforme necessário */
+    margin: 40px 0;
     padding: var(--padding);
     padding-bottom: 40px;
-    position: relative;
 }
 
+/* Estilo para a seção de introdução */
+.intro-texto {
+    padding: var(--padding);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@keyframes sombra {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.texto-divertido {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-transform: none;
+    animation: sombra 1.5s infinite ease-in-out;
+}
 
 /* Seção Texto */
 .texto {
@@ -89,10 +108,8 @@ main {
     gap: 20px;
     width: 100%;
     max-width: 680px;
-    margin: 0 auto;
-    padding: 30px 10px;
-    margin-bottom: 20px;
-    position: relative;
+    margin: 0 auto 20px auto;
+    padding: 20px 10px; 
     color: var(--cor-texto);
 }
 
@@ -106,6 +123,15 @@ main {
     background: var(--cor-branco);
     margin-bottom: 20px;
     color: var(--cor-texto);
+    border-radius: var(--border-radius);
+}
+
+/* Contador de Caracteres */
+.contador-caracteres {
+    text-align: right;
+    color: var(--cor-texto-neutro);
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 /* Texto de Aviso com ícone */
@@ -116,8 +142,6 @@ main {
     margin-bottom: 10px;
     font-size: 14px;
     color: var(--cor-texto-neutro);
-    justify-content: flex-start;
-    width: 100%;
 }
 
 .text-aviso p {
@@ -132,12 +156,11 @@ main {
     margin-right: 8px;
 }
 
-/* Estilo da Mensagem */
+/* Ajustes para a seção mensagem */
 .mensagem {
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 20px;
-    position: relative;
     background: var(--gradiente-primario);
     border: none;
     border-radius: var(--border-radius);
@@ -147,9 +170,7 @@ main {
     width: 100%;
     max-width: 336px;
     min-height: 380px;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 0px;
+    margin: 0 auto; 
 }
 
 /* Estilo do Conteúdo da Mensagem */
@@ -174,31 +195,25 @@ main {
     margin-top: 10px;
 }
 
-/* Área de texto */
+/* Ajustes para a área de resposta dentro da seção mensagem */
 .resposta {
-    position: relative;
     width: 100%;
     max-width: 336px;
-    height: 150px;
+    height: 100px;
     padding: 16px;
     border: 1px solid var(--cor-secundaria);
     border-radius: var(--border-radius);
     font-size: var(--font-size);
     line-height: var(--line-height);
     background: var(--cor-branco);
-    margin: 0 auto 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    resize: none;
-    box-sizing: border-box;
+    margin: 10px 0;
 }
 
 /* Botões */
 .botoes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Lado a lado em telas grandes */
-    gap: 16px; /* Espaçamento entre os botões */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
     width: 100%;
     max-width: 680px;
     margin: 20px 0;
@@ -214,201 +229,195 @@ main {
     border-radius: var(--border-radius);
     cursor: pointer;
     box-shadow: var(--box-shadow);
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-}
-
-/* Botão Criptografar */
-.btn-criptografar {
     color: var(--cor-branco);
-    background: var(--cor-primaria);
-    border: 1px solid var(--cor-primaria);
+    background: var(--gradiente-secundario);
+    border: none;
+    transition: background 0.3s ease, outline 0.3s ease;
 }
 
-.btn-criptografar:hover {
-    background: var(--cor-secundaria);
-    color: var(--cor-primaria);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.btn-criptografar:active {
-    box-shadow: inset 2px 2px 4px var(--cor-fundo), inset -3px -4px 8px var(--cor-primaria);
-    color: var(--cor-secundaria);
-}
-
-/* Botão Descriptografar */
-.btn-desencriptar {
-    color: var(--cor-branco);
-    background: var(--cor-secundaria);
-    border: 1px solid var(--cor-primaria);
-}
-
-.btn-desencriptar:hover {
-    background: var(--cor-primaria);
-    color: var(--cor-secundaria);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.btn-desencriptar:active {
-    box-shadow: inset 2px 2px 4px var(--cor-primaria), inset -3px -4px 8px var(--cor-fundo);
-    color: rgb(22, 3, 33, 0.54);
-}
-
-/* Botão Copiar */
-.btn-copiar {
-    width: 100%;
-    max-width: 336px;
-    background: var(--cor-secundaria);
-    border: 1px solid var(--cor-primaria);
-    padding: 16px 24px;
-    border-radius: var(--border-radius);
-    color: var(--cor-branco);
-    cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-}
-
+.btn-criptografar:hover,
+.btn-desencriptar:hover,
 .btn-copiar:hover {
-    background-color: var(--cor-primaria);
-    color: var(--cor-branco);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Foco nos Botões */
-.btn-criptografar:focus,
-.btn-desencriptar:focus,
-.btn-copiar:focus {
-    outline: 2px solid var(--cor-alerta);
-    outline-offset: 4px;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.5);
-    transition: outline 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-::placeholder {
-    color: var(--cor-texto-neutro);
-    font-size: var(--font-size);
-    font-weight: 400;
-    font-family: 'Lato', sans-serif;
-    text-transform: none;
-}
-
-/* Estilo do Footer */
-footer {
     background: var(--gradiente-primario);
+}
+
+/* Transição suave para hover e focus */
+.btn-criptografar:focus-visible,
+.btn-desencriptar:focus-visible,
+.btn-copiar:focus-visible {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 4px;
+}
+
+/* Mensagem Temporária */
+.mensagem-temporaria {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--cor-secundaria);
     color: var(--cor-branco);
-    padding: var(--padding);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: none;
+    z-index: 1000;
+    font-size: 16px;
+}
+
+/* Rodapé */
+footer {
     text-align: center;
-    margin-top: 20px; /* Adiciona um pouco de espaço acima do rodapé */
-}
-
-footer p {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-footer a {
+    padding: 20px;
+    background: var(--gradiente-secundario);
     color: var(--cor-branco);
+    position: relative;
+}
+
+/* Estilo dos links sociais */
+footer nav a {
+    color: var(--cor-branco);
+    margin: 0 10px;
+    font-size: 36px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo dos links sociais ao passar o mouse */
+footer nav a:hover {
+    color: var(--cor-primaria);
+    transform: scale(1.1);
+}
+/* Estilo do botão Voltar ao Topo */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    font-size: 24px;
     text-decoration: none;
+    transition: background 0.3s ease;
+    z-index: 1000;
 }
 
-footer a:hover {
-    text-decoration: underline;
+.back-to-top:hover {
+    background: var(--cor-secundaria);
 }
 
-/* Responsividade */
-
-/* Dispositivos Móveis Pequenos */
-@media (max-width: 480px) {
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
-
-    header h1 {
-        font-size: 18px;
-    }
-
-    .botoes {
-        grid-template-columns: 1fr; /* Coloca os botões em uma coluna */
-        gap: 16px; /* Espaçamento entre botões */
-    }
-
-    .btn-criptografar,
-    .btn-desencriptar,
-    .btn-copiar {
-        width: 100%;
-        padding: 12px 16px;
-        font-size: 14px;
-    }
-
-    .texto {
-        padding: 15px;
-    }
-
-    .resposta {
-        height: 60px;
-    }
+.back-to-top i {
+    margin: 0;
 }
 
-/* Dispositivos Móveis Médios e Tablets */
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    .logo {
-        width: 60px;
-        height: 60px;
+    main {
+        padding: 10px;
     }
 
-    header h1 {
-        font-size: 20px;
-    }
-
-    .botoes {
-        grid-template-columns: 1fr; /* Coloca os botões em uma coluna */
-        gap: 16px; /* Espaçamento entre botões */
-    }
-
-    .btn-criptografar,
-    .btn-desencriptar,
-    .btn-copiar {
-        width: 100%;
+    .mensagem {
+        max-width: 90%;
+        margin: 0 auto;
     }
 
     .texto {
         padding: 20px;
     }
-}
 
-/* Dispositivos de Tela Grande (Desktops Pequenos) */
-@media (max-width: 1024px) {
+    .text-area {
+        height: 150px;
+    }
+
+    .resposta {
+        height: 80px;
+    }
+
     .botoes {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-        gap: 20px;
+        grid-template-columns: 1fr;
     }
 
     .btn-criptografar,
     .btn-desencriptar,
     .btn-copiar {
-        width: 100%;
+        height: auto;
+        padding: 12px 16px;
+        font-size: 14px;
     }
 
-    .texto {
-        padding: 25px;
+    .main-content {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
     }
 }
 
-/* Dispositivos de Tela Muito Grande (Desktops Grandes) */
-@media (min-width: 1200px) {
-    .logo {
-        width: 100px;
+@media (max-width: 480px) {
+    .texto {
+        padding: 10px;
     }
 
-    header h1 {
-        font-size: 28px;
+    .text-area {
+        height: 120px;
+    }
+
+    .resposta {
+        height: 60px;
+    }
+
+    .botoes {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .btn-criptografar,
+    .btn-desencriptar,
+    .btn-copiar {
+        height: auto;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}
+
+/* Media Queries para Responsividade em telas maiores */
+@media (min-width: 769px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas maiores */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        bottom: 10px;
+        right: 10px;
     }
 }

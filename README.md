@@ -20,11 +20,11 @@ Este projeto é uma versão aprimorada do Decodificador de Texto, desenvolvido o
 - **CSS3**: Estilização e design responsivo.
 - **JavaScript**: Lógica de criptografia/descriptografia e manipulação de DOM.
 
-## Capturas de Tela
+## Resultado visual e minha badge
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="./imgs/challenge1.png" alt="Tela inicial da aplicação" width="45%">
-  <img src="./imgs/challenge2.png" alt="Resultado da criptografia" width="45%">
+  <img src="./imgs/challenge.png" alt="Tela da aplicação" width="45%">
+  <img src="./imgs/decodificador.png" alt="Minha badge de conclusão " width="45%">
 </div>
 
 ## Como Usar

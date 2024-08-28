@@ -2,10 +2,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Decodificador de texto desenvolvido por Tatiane Souza para o Challenge da ONE (Oracle + Alura).">
+    <meta property="og:title" content="Decodificador de Texto">
+    <meta property="og:description" content="Transforme suas mensagens de forma fácil e rápida.">
+    <meta property="og:image" content="./imgs/logo.png">
+    <meta property="og:url" content="https://sowza82.github.io/decodificador_texto-challenge24/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./imgs/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <title>Decodificador de texto</title>
@@ -13,44 +17,65 @@
 <body>
 
     <!-- Cabeçalho -->
-    <header>
+    <header id="top">
         <img class="logo" src="./imgs/logo.png" alt="logo sowzadev">
-        <h1>Decodificador de texto</h1>
+        <h1>SowzaDev</h1>
     </header>
 
     <!-- Principal -->
     <main>
+        <!-- Texto intuitivo convidando o usuário -->
+        <section class="intro-texto">
+            <p class="texto-divertido">🎉 Bem-vindo ao Decodificador de Texto! 🎉 <br> Transforme suas mensagens de forma fácil e rápida.
+                <br>Digite seu texto abaixo e escolha uma opção!</p>
+        </section>
+
         <section class="texto">
             <textarea class="text-area" cols="41" rows="4" placeholder="Digite o texto aqui" aria-label="Campo para digitar o texto a ser criptografado ou descriptografado"></textarea>
+
+            <!-- Contador de caracteres -->
+            <div class="contador-caracteres">
+                <p><span id="charCount">0</span>/200 caracteres</p>
+            </div>
+
             <div class="text-aviso">
                 <i class="fa-solid fa-circle-exclamation img-aviso"></i>
                 <p>Apenas letras minúsculas e sem acentos.</p>
             </div>
             <div class="botoes">
-                <button type="button" class="btn-criptografar">Criptografar</button>
-                <button type="button" class="btn-desencriptar">Descriptografar</button>
+                <button type="button" class="btn-criptografar" aria-label="Criptografar texto">Criptografar</button>
+                <button type="button" class="btn-desencriptar" aria-label="Descriptografar texto">Descriptografar</button>
             </div>
         </section>
 
         <section class="mensagem">
             <div class="mensagem-resposta">
-                <img src="./imgs/decodf.png" class="imagem-front" alt="decodificador">
+                <img src="./imgs/decodf.png" class="imagem-front" alt="Imagem front">
                 <p class="segundo-texto">Seu texto criptografado ou descriptografado.</p>
             </div>
-            <textarea class="resposta" cols="30" rows="10" placeholder="Aparecerá aqui!" aria-label="Resultado da criptografia ou descriptografiação"></textarea>
-            <button type="button" class="btn-copiar">Copiar</button>
+            <label for="resultado" class="visually-hidden"></label>
+            <textarea id="resultado" class="resposta" cols="30" rows="10" placeholder="  Aparecerá aqui!" aria-label="Resultado da criptografia ou descriptografia"></textarea>
+            <button type="button" class="btn-copiar" aria-label="Copiar texto">Copiar</button>
         </section>
+
+        <!-- Mensagem temporária -->
+        <div id="mensagem-temporaria" class="mensagem-temporaria"></div>
     </main>
 
     <!-- Rodapé -->
     <footer>
         <p class="copyright">&copy; 2024 - Challenge decodificador - Desenvolvido por Tatiane Souza</p>
-        <a href="https://www.linkedin.com/in/sowza82-tatiane-souza/" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/Sowza82" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-        </a>
+        <nav>
+            <a href="https://www.linkedin.com/in/sowza82-tatiane-souza/" target="_blank" rel="noopener noreferrer" title="Visite meu LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Sowza82" target="_blank" rel="noopener noreferrer" title="Visite meu GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#top" class="back-to-top" title="Voltar ao Topo">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </nav>
     </footer>
 
     <script src="./js/script.js"></script>
